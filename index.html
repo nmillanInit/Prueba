@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>APP PASEADORES</title>
+    <script src="js/sistema.js"></script>
+    <script src="js/clases.js"></script>
+    <script src="js/codigo.js"></script>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+
+  <body>
+    <div id="contenedor">
+      <header>
+        <img id="logo" src="https://p1.develotion.com/logo.jpg" alt="logo" />
+        <nav>
+          <ul id="navPrincipal">
+            <li id="btnSeccionContratar" class="btnSeccion cliente">
+              <a>Contratar Servicio</a>
+            </li>
+            <li id="btnSeccionRegistro" class="btnSeccion inicio">
+              <a>Registrarse</a>
+            </li>
+            <li id="btnSeccionLogin" class="btnSeccion inicio">
+              <a>Iniciar sesión</a>
+            </li>
+            <li id="btnMisContrataciones" class="btnSeccion cliente">
+              <a>Mis contrataciones</a>
+            </li>
+            <li id="btnSeccionListadoPaseadores" class="btnSeccion cliente">
+              <a>Listado de paseadores</a>
+            </li>
+            <li id="btnSeccionListadoPerrosAsignados" class="btnSeccion paseador">
+              <a>Listado de perros</a>
+            </li>
+            <li id="btnSeccionLogout" class="btnSeccion cliente paseador">
+              <a>Cerrar Sesion</a>
+            </li>
+            <div class="aux">
+              <p id="nombreUsuarioLogueado"></p>
+            </div>
+          </ul>
+        </nav>
+      </header>
+
+      <!-- FIN CABEZAL -->
+
+      <main>
+        <section class="seccion" id="seccionRegistro">
+          <!--Seccion registro de clientes-->
+          <h2>Registro de usuarios</h2>
+          <label for="txtUsuario">Ingrese un nombre de usuario</label>
+          <input type="text" id="txtUsuario" />
+          <br />
+          <label for="txtContrasenia">Ingrese una contraseña</label>
+          <input type="text" id="txtContrasenia" />
+          <br />
+          <label for="txtNombrePerro">Ingrese el nombre de su perro</label>
+          <input type="text" id="txtNombrePerro" />
+          <br />
+          <label for="slcTamanioPerro">Ingrese el tamaño de su perro:</label>
+          <select id="slcTamanioPerro">
+            <option value="chico">Chico</option>
+            <option value="mediano">Mediano</option>
+            <option value="grande">Grande</option>
+          </select>
+          <input type="button" value="Registrarse" id="btnRegistro" />
+          <p id="errorRegistro"></p>
+          <p id="registroExitoso"></p>
+          <!--Termina Seccion registro de clientes-->
+        </section>
+
+        <br />
+
+        <!--LOGIN-->
+        <section class="seccion" id="seccionLogin">
+          <h2>Inicio de sesión</h2>
+          <label for="txtUsuarioLogin">Usuario:</label>
+          <input type="text" id="txtUsuarioLogin" />
+          <br />
+          <label for="txtContraseniaLogin">Contraseña:</label>
+          <input type="text" id="txtContraseniaLogin" />
+          <br />
+          <input type="button" value="Ingresar" id="btnLogin" />
+          <br />
+          <p id="errorLogin"></p>
+          <p id="loginExitoso"></p>
+        </section>
+
+        <!-- TABLA CONTRATAR SERVICIO -->
+        <section class="seccion" id="seccionContrataciones">
+          <h2>Listado de paseadores:</h2>
+          <p>
+            Click en "Contratar" para iniciar el servicio con el paseador
+            deseado.
+          </p>
+          <table>
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Cupos disponibles</th>
+                <th>Usuario</th>
+              </tr>
+            </thead>
+            <tbody id="tblContrataciones"></tbody>
+          </table>
+
+          <p id="msjContratacion"></p>
+        </section>
+
+        <section class="seccion" id="seccionGestionContratacion">
+          <h2>Gestion de mi contratacion:</h2>
+          <table>
+            <thead>
+              <tr>
+                <!-- <th>Fecha</th> -->
+                <th>Paseador</th>
+                <th>Estado</th>
+              </tr>
+            </thead>
+            <tbody id="tblGestionContratacion"></tbody>
+          </table>
+
+          <p id="msjCancelacionContratacion"></p>
+          <p id="msjSinContratacionesPendientes"></p>
+        </section>
+        <section class="seccion" id="seccionListadoPaseadores">
+          <h2>Listado de paseadores:</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Paseador</th>
+                <th>Perros Asignados</th>
+              </tr>
+            </thead>
+            <tbody id="tblListadoPaseadores"></tbody>
+          </table>
+        </section>
+         <!-- TABLA GESTION PARA PASEADORES (PASEADORES)-->
+      <section class="seccion" id="seccionGestionParaPaseadores">
+        <h2>Gestion de clientes:</h2>
+        <p id="msjCantidadCupos"></p>
+        <table>
+          <thead>
+            <tr>
+              <th>Cliente</th>
+              <th>Mascota</th>
+              <th>Tamaño</th>
+            </tr>
+          </thead>
+          <tbody id="tblGestionParaPaseadores"></tbody>
+        </table>
+        <p id="msjGestionParaPaseadores"></p>
+        
+        <p>Valor de cupos:</p>
+        <ul>
+          <li>Mascotas grandes: 4 Cupos</li>
+          <li>Mascotas medianas: 2 Cupos</li>
+          <li>Mascotas chicas: 1 Cupos</li>
+        </ul>
+      </section>
+      <section class="seccion" id="seccionListadoPerrosAsignados">
+        <h2>Perros asignados</h2>
+        <table>
+          <thead>
+            <th>Nombre</th>
+            <th>Tamaño</th>
+          </thead>
+          <tbody id="tblPerrosAsignados"></tbody>
+        </table>
+        <p id="infoPerrosAsignados"></p>
+      </section>
+      </main>
+      <!-- FIN CONTENIDO -->
+      <footer>
+        <a href="https://www.ort.edu.uy">Footer</a>
+      </footer>
+      <!-- FIN PIE -->
+    </div>
+    <!-- FIN CONTENEDOR -->
+  </body>
+</html>
